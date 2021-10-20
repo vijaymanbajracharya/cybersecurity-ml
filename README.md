@@ -1,3 +1,3 @@
 # University of Utah CS5350 Final Exploratory Project
-authors: Tyler Jones and Vijay Bajracharya\
-A machine learning library on public cybersecurity data
+Authors: Tyler Jones and Vijay Bajracharya\
+A machine learning library on the public UNSW_NB15 cybersecurity data
