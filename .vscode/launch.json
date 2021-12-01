@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cybersecurity Threat Classification",
+            "type": "python",
+            "request": "launch",
+            "program": "run_analysis.py",
+            "args" : [],
+            "console": "integratedTerminal",
+            "cwd":"${workspaceFolder}/src"
+        }
+    ]
+}
