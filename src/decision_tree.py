@@ -5,12 +5,10 @@ import numpy as np
 
 def run():
     ########################################
-    # Fetch and Preprocess Data
+    # Get The Preprocessed Data
     ########################################
-    X_train_encoded, Y_train = fetch_data_preprocessed(type='TRAIN')
-    X_test_encoded, Y_test = fetch_data_preprocessed(type='TEST')
+    X_train_encoded, Y_train, X_test_encoded, Y_test = fetch_data_preprocessed()
 
-    print(len(X_train_encoded[0]), len(X_test_encoded[0]))
     ########################################
     # Create Classifier
     ########################################
