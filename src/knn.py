@@ -1,6 +1,8 @@
 from sklearn.neighbors import KNeighborsClassifier
 from classifier_analysis import ClassifierAnalysis
+from sklearn.metrics import f1_score
 from preprocess_data import fetch_data_preprocessed
+from utilities import categorical_to_binary
 import numpy as np
 
 def run():
@@ -49,4 +51,7 @@ def run():
 
     train_error = incorrect_count_train / len(Y_train)
 
-    return ClassifierAnalysis('KNN', test_error, train_error, classification_error_by_label)
+    f1_cat = f1_score(Y_test, test_predictions, average='micro')
+    f1_bin = f1_score(categorical_to_binary(Y_test), categorical_to_binary(test_predictions))
+
+    return ClassifierAnalysis('KNN', test_error, train_error, classification_error_by_label, f1_cat, f1_bin)

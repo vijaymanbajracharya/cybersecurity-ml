@@ -1,5 +1,5 @@
-from sklearn.ensemble import RandomForestClassifier
-from imblearn.ensemble import BalancedRandomForestClassifier
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import f1_score
 from classifier_analysis import ClassifierAnalysis
 from preprocess_data import fetch_data_preprocessed
@@ -15,8 +15,8 @@ def run():
     ########################################
     # Create Classifier
     ########################################
-    classifier = BalancedRandomForestClassifier(n_estimators=100, max_depth=3)
-    # classifier = RandomForestClassifier(n_estimators=100, max_depth=3)
+    # classifier = MultinomialNB()
+    classifier = GaussianNB()
     classifier = classifier.fit(X_train_encoded, Y_train.flatten())
 
     ########################################
@@ -56,4 +56,4 @@ def run():
     f1_cat = f1_score(Y_test, test_predictions, average='micro')
     f1_bin = f1_score(categorical_to_binary(Y_test), categorical_to_binary(test_predictions))
 
-    return ClassifierAnalysis('Random Forest', test_error, train_error, classification_error_by_label, f1_cat, f1_bin)
+    return ClassifierAnalysis('Naive Bayes', test_error, train_error, classification_error_by_label, f1_cat, f1_bin)
