@@ -52,6 +52,6 @@ def run():
     train_error = incorrect_count_train / len(Y_train)
 
     f1_cat = f1_score(Y_test, test_predictions, average='micro')
-    f1_bin = f1_score(categorical_to_binary(Y_test), categorical_to_binary(test_predictions))
+    f1_bin = f1_score(categorical_to_binary(Y_test.flatten()), categorical_to_binary(test_predictions))
 
     return ClassifierAnalysis('Decision Tree', test_error, train_error, classification_error_by_label, f1_cat, f1_bin)

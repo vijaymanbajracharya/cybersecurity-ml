@@ -11,7 +11,7 @@ class ClassifierAnalysis:
         repr = f'Algorithm Name: {self.algo_name}\n'
         repr += f'Aggregate Testing Error {self.test_error}\n'
         repr += f'Aggregate Training Error {self.train_error}\n'
-        repr += f'F1 Score - Categorical {self.f1_cat}\n'
+        repr += f'F1 Score - Multi-Class {self.f1_cat}\n'
         repr += f'F1 Score - Binary {self.f1_bin}\n'
         repr += '----------------------------------------------\n'
         repr += '{:<15} {:<12} {:<12} {:<12}\n'.format('Label', 'Correct', 'Incorrect', 'Error')

@@ -63,7 +63,7 @@ def fetch_data_preprocessed():
     X_test_encoded = np.array(X_test_encoded)
     
     ###########################################################
-    # Under Sample Data
+    # Under/Over Sample Data By Label
     ###########################################################
 
     under_sample_dict = {
