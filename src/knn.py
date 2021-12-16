@@ -4,8 +4,9 @@ from sklearn.metrics import f1_score
 from preprocess_data import fetch_data_preprocessed
 from utilities import categorical_to_binary
 import numpy as np
+from cross_validation import cross_validate
 
-def run():
+def run(n_neighbors=5):
     ########################################
     # Get The Preprocessed Data
     ########################################
@@ -14,7 +15,7 @@ def run():
     ########################################
     # Create Classifier
     ########################################
-    classifier = KNeighborsClassifier(weights='distance', algorithm='kd_tree', leaf_size=15, n_jobs=-1)
+    classifier = KNeighborsClassifier(n_neighbors=n_neighbors, weights='distance', algorithm='kd_tree', leaf_size=15, n_jobs=-1)
     classifier = classifier.fit(X_train_encoded, Y_train.flatten())
 
     ########################################

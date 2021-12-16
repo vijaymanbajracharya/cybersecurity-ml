@@ -4,9 +4,10 @@ from sklearn.metrics import f1_score
 from classifier_analysis import ClassifierAnalysis
 from preprocess_data import fetch_data_preprocessed
 from utilities import categorical_to_binary
+from cross_validation import cross_validate
 import numpy as np
 
-def run():
+def run(n_estimators=100):
     ########################################
     # Get The Preprocessed Data
     ########################################
@@ -15,8 +16,7 @@ def run():
     ########################################
     # Create Classifier
     ########################################
-    classifier = BalancedRandomForestClassifier(n_estimators=100, max_depth=3)
-    # classifier = RandomForestClassifier(n_estimators=100, max_depth=3)
+    classifier = BalancedRandomForestClassifier(n_estimators=n_estimators, max_depth=3)
     classifier = classifier.fit(X_train_encoded, Y_train.flatten())
 
     ########################################

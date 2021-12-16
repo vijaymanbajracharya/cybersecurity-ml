@@ -1,22 +1,27 @@
+import enum
 from sklearn.tree import DecisionTreeClassifier
 from classifier_analysis import ClassifierAnalysis
+from sklearn.model_selection import KFold
+from sklearn.metrics import accuracy_score
 from sklearn.metrics import f1_score
 from preprocess_data import fetch_data_preprocessed
 from utilities import categorical_to_binary
+from cross_validation import cross_validate
 import numpy as np
 
-def run():
+def run(max_depth=20):
     ########################################
     # Get The Preprocessed Data
     ########################################
     X_train_encoded, Y_train, X_test_encoded, Y_test = fetch_data_preprocessed()
 
-    ########################################
-    # Create Classifier
-    ########################################
-    classifier = DecisionTreeClassifier(max_depth=20, min_samples_leaf=8, min_samples_split=40)
-    classifier = classifier.fit(X_train_encoded, Y_train)
+    #########################################################
+    # Train using the best hyperparameter
+    #########################################################
 
+    classifier = DecisionTreeClassifier(max_depth=max_depth, min_samples_leaf=8, min_samples_split=40)
+    classifier = classifier.fit(X_train_encoded, Y_train)
+        
     ########################################
     # Generate Classification Results
     ########################################
